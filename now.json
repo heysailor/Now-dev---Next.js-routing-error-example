@@ -9,8 +9,11 @@
   ],
   "routes": [
     {
-      "src": "/redirect?dest=(?<dest>.+)$",
-      "dest": "$dest"
+      "src": "/redirect?dest=(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "https://google.com/$1"
+      }
     },
     {
       "src": "/hello/(?<name>.+)$",
