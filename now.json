@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "NextJs Hello rewriting test",
+  "builds": [
+    {
+      "src": "./next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/redirect?dest=(?<dest>.+)$",
+      "dest": "$dest"
+    },
+    {
+      "src": "/hello/(?<name>.+)$",
+      "dest": "/hello?name=$name"
+    }
+  ]
+}
